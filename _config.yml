@@ -1,2 +1,1 @@
-keep_files: ["*"]
-exclude: ["*"]
+keep_files: ["*.html", "index.html"]
