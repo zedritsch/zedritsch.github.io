@@ -1,0 +1,6 @@
+en: &EN
+  test: This is a Test
+  node: No German Translation
+de:
+  <<: *EN
+  test: Das ist ein Test
