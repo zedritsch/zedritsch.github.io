@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<title>Title Placeholder</title><meta name="description"content="Description Placeholder"><meta name="twitter:card"content="summary_large_image"><meta name="twitter:site"content="@Zedritsch"><meta name="twitter:title"property="og:title"content="Title Placeholder"><meta name="twitter:description"property="og:description"content="Description Placeholder"><meta name="twitter:image"property="og:image"content="/img/large-image-placeholder.png"><meta property="og:type"content="article">
-</head>
+<body>
+	<!-- Auto-Redirect -->
+	<script type="text/javascript">
+		onload = async () => {
+			// Get preferred language
+			a = navigator.language.substring(0, 2);
+			// Check if url exists and redirect to it
+			location.pathname = ((await fetch("/" + a, { method: "head" })).status == 404) ? "en" : a
+		}
+	</script>
+	<noscript>
+		<!-- Auto-Redirect Tag -->
+		<meta http-equiv="refresh" content="0;url=/en">
+		<!-- Manual-Redirect Link -->
+		<a href="/en">Redirect</a>
+	</noscript>
+</body>
 
 </html>
