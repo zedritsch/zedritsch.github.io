@@ -1,6 +1,19 @@
 en: &EN
-  test: This is a Test
-  node: No German Translation
+  about: About me
+  projects: Projects
+  tutorials: Tutorials
+  articles: Articles
+  showcase: Showcase
+  back: Back
+  imprint: Imprint
+  credits: Credits
 de:
   <<: *EN
-  test: Das ist ein Test
+  about: Über mich
+  projects: Projekte
+  tutorials: Tutorials
+  articles: Artikel
+  showcase: Showcase
+  back: Zurück
+  imprint: Impressum
+  credits: Credits

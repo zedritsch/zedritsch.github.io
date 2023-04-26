@@ -1,9 +1,77 @@
+---
+type: website
+item: icons.html
+---
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.lang }}">
+
 <head>
-	<title>{{ page.title }} · Zedritsch</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<!-- Card -->
+	<title>{{ page.title }}</title>
+	<meta name="title" property="og:title,twitter:title" content="{{ page.title }}">
+	<meta name="description" property="og:description,twitter:description" content="{{ page.description }}">
+	<meta property="og:image,twitter:image" content="{{ page.image }}">
+	<meta property="og:url,twitter:url" content="{{ site.url }}">
+	<meta property="og:type" content="{{ layout.type }}">
+	<meta property="twitter:card" content="summary_large_image">
+
+	<!-- Styling -->
+	<link rel="icon" href="/favicon.ico">
+	<link rel="stylesheet" href="/global.css">
 </head>
+
 <body>
-	{{ content }}
+	<!-- TopBar -->
+	<div id="t">
+		<!-- Home -->
+		<a href="/"><img src="">{{ site.name }}</a>
+		<!-- NavBar -->
+		<nav>
+			<a href="/link"><img src="">{{ site.data.lang[page.lang].about }}</a>
+			<a href="/{{ page.lang }}/projects"><img src="">{{ site.data.lang[page.lang].projects }}</a>
+			<a href="/{{ page.lang }}/tutorials"><img src="">{{ site.data.lang[page.lang].tutorials }}</a>
+			<a href="/{{ page.lang }}/articles"><img src="">{{ site.data.lang[page.lang].articles }}</a>
+			<a href="/{{ page.lang }}/showcase"><img src="">{{ site.data.lang[page.lang].showcase }}</a>
+		</nav>
+		<!-- QuickLinks -->
+		{% include {{ layout.item }} %}
+
+	</div>
+
+	<main>
+		<!-- Header -->
+		{% if page.header %}
+		{% include {{ page.header }} %}
+		{% endif %}
+
+		<!-- Main Content -->
+		{{ content }}
+
+		<!-- Form -->
+		{% if page.form %}
+		{% include {{ page.form }} %}
+		{% endif %}
+	</main>
+
+	<footer>
+		<div>
+			<p><a href="/about/imprint">{{ site.data.lang[page.lang].imprint }}</a></p>
+			<p><a href="/about/credits">{{ site.data.lang[page.lang].credits }}</a></p>
+		</div>
+		<div>
+			<a href="/lnk/twitter" target="_blank"><img src="/img/twitter.svg"></a>
+			<a href="/lnk/youtube" target="_blank"><img src="/img/youtube.svg"></a>
+			<a href="/lnk/github" target="_blank"><img src="/img/github.svg"></a>
+			<a href="/lnk/e-mail" target="_blank"><img src="/img/e-mail.svg"></a>
+			<a href="/lnk/discord" target="_blank"><img src="/img/discord.svg"></a>
+		</div>
+		<p>Copyright © 2023 Zedritsch</p>
+	</footer>
+
+	<script src="/global.js"></script>
 </body>
+
 </html>

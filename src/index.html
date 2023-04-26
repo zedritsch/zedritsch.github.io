@@ -1,1 +1,22 @@
-<!DOCTYPE html><html><head><title>Moin</title></head></html>
+<!DOCTYPE html>
+<html>
+
+<body>
+	<!-- Auto-Redirect -->
+	<script type="text/javascript">
+		onload = async () => {
+			// Get preferred language
+			a = navigator.language.substring(0, 2);
+			// Check if url exists and redirect to it
+			location.pathname = ((await fetch("/" + a, { method: "head" })).status == 404) ? "en" : a
+		}
+	</script>
+	<noscript>
+		<!-- Auto-Redirect Tag -->
+		<meta http-equiv="refresh" content="0;url=/en">
+		<!-- Manual-Redirect Link -->
+		<a href="/en">Redirect</a>
+	</noscript>
+</body>
+
+</html>
