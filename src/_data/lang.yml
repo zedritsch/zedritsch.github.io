@@ -1,0 +1,19 @@
+en: &EN
+  about: About me
+  projects: Projects
+  tutorials: Tutorials
+  articles: Articles
+  showcase: Showcase
+  back: Back
+  imprint: Imprint
+  credits: Credits
+de:
+  <<: *EN
+  about: Über mich
+  projects: Projekte
+  tutorials: Tutorials
+  articles: Artikel
+  showcase: Showcase
+  back: Zurück
+  imprint: Impressum
+  credits: Credits

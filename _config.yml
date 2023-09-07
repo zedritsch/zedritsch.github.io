@@ -1,0 +1,11 @@
+disable_disk_cache: true
+source: src
+destination: Zedritsch.github.io
+name: Zedritsch.tk
+defaults:
+  - values:
+      layout: default
+      lang: en
+      title: Title
+      description: Description
+      image: Image
