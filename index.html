@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html>
 
-<body>
-	<!-- Auto-Redirect -->
-	<script type="text/javascript">
-		onload = async () => {
-			// Get preferred language
-			a = navigator.language.substring(0, 2);
-			// Check if url exists and redirect to it
-			location.pathname = ((await fetch("/" + a, { method: "head" })).status == 404) ? "en" : a
-		}
-	</script>
-	<noscript>
-		<!-- Auto-Redirect Tag -->
-		<meta http-equiv="refresh" content="0;url=/en">
-		<!-- Manual-Redirect Link -->
-		<a href="/en">Redirect</a>
-	</noscript>
-</body>
+<style>
+	@font-face {
+		font-family: Roboto;
+		src: url("fonts/Roboto.ttf");
+	}
+
+	body {
+		margin: 0;
+		height: 100vh;
+		background: black;
+		color: whitesmoke;
+		font-family: Roboto;
+		font-size: 2em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
+
+<script>
+	const INTERVAL_MS = 3000;
+	const DATES = [
+		"Wednesday, November 1st, 2023",
+		"Mittwoch, 01. November 2023",
+		"Mercredi 1er Novembre 2023",
+		"Miércoles 1 de Noviembre de 2023",
+		"Среда, 1 ноября 2023 г.",
+		"الأربعاء 1 نوفمبر 2023",
+		"2023 年 11 月 1 日水曜日",
+		"बुधवार, 1 नवंबर 2023"
+	];
+
+	let current_date = 0;
+
+	function updateDisplayedDate() {
+		if (current_date == DATES.length)
+			current_date = 0;
+
+		document.body.innerText = DATES[current_date++];
+	}
+
+	onload = () => {
+		updateDisplayedDate();
+
+		setInterval(updateDisplayedDate, INTERVAL_MS);
+	}
+</script>
 
 </html>

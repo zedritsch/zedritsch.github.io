@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+	<meta http-equiv="refresh" content="0;url=/">
+</head>
+
 <body>
-	<!-- Auto-Redirect -->
-	<script type="text/javascript">
-		onload = async () => {
-			// Get preferred language
-			a = location.pathname.substring(0, 3);
-			// Check if url exists and redirect to it
-			location.pathname = (((await fetch(a, { method: "head" })).status == 404) ? "en" : a) + "/404"
-		}
-	</script>
-	<noscript>
-		<!-- Auto-Redirect Tag -->
-		<meta http-equiv="refresh" content="0;url=/en/404">
-		<!-- Manual-Redirect Link -->
-		<a href="/en/404">Redirect</a>
-	</noscript>
+	<a href="/">Home</a>
 </body>
 
 </html>
