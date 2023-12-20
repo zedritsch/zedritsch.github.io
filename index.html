@@ -20,33 +20,4 @@
 	}
 </style>
 
-<script>
-	const INTERVAL_MS = 3000;
-	const DATES = [
-		"Wednesday, November 1st, 2023",
-		"Mittwoch, 01. November 2023",
-		"Mercredi 1er Novembre 2023",
-		"Miércoles 1 de Noviembre de 2023",
-		"Среда, 1 ноября 2023 г.",
-		"الأربعاء 1 نوفمبر 2023",
-		"2023 年 11 月 1 日水曜日",
-		"बुधवार, 1 नवंबर 2023"
-	];
-
-	let current_date = 0;
-
-	function updateDisplayedDate() {
-		if (current_date == DATES.length)
-			current_date = 0;
-
-		document.body.innerText = DATES[current_date++];
-	}
-
-	onload = () => {
-		updateDisplayedDate();
-
-		setInterval(updateDisplayedDate, INTERVAL_MS);
-	}
-</script>
-
 </html>

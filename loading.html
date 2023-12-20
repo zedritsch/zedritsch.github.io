@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+	body {
+		margin: 0;
+		height: 100vh;
+		background: black;
+		font-size: 2em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
+
+<script>
+	const LOADING_PHASES = [
+		"🖤🖤🖤🖤🖤🖤",
+		"❤️🖤🖤🖤🖤🖤",
+		"❤️🧡🖤🖤🖤🖤",
+		"❤️🧡💛🖤🖤🖤",
+		"❤️🧡💛💚🖤🖤",
+		"❤️🧡💛💚💙🖤",
+		"❤️🧡💛💚💙💜",
+		"❤️🧡💛💚💙💜",
+		"❤️🧡💛💚💙💜"
+	];
+
+	let current_phase = 0;
+
+	function updateLoadingProgress() {
+		if (current_phase == LOADING_PHASES.length)
+			current_phase = 0;
+
+		document.body.innerText = LOADING_PHASES[current_phase++];
+
+		setTimeout(updateLoadingProgress, Math.floor(Math.random() * 6) * 400);
+	}
+
+	onload = updateLoadingProgress;
+</script>
+
+</html>
