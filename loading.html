@@ -22,7 +22,6 @@
 		"❤️🧡💛💚🖤🖤",
 		"❤️🧡💛💚💙🖤",
 		"❤️🧡💛💚💙💜",
-		"❤️🧡💛💚💙💜",
 		"❤️🧡💛💚💙💜"
 	];
 
@@ -37,7 +36,10 @@
 		setTimeout(updateLoadingProgress, Math.floor(Math.random() * 6) * 400);
 	}
 
-	onload = updateLoadingProgress;
+	onload = {
+		document.getElementsByTagName("HTML")[0].requestFullscreen();
+		updateLoadingProgress;
+	}
 </script>
 
 </html>
