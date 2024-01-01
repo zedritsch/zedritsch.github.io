@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html>
 
-<style>
-	body {
-		margin: 0;
-		height: 100vh;
-		background: black;
-		font-size: 2em;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-</style>
+<head>
+	<style>
+		body {
+			margin: 0;
+			height: 100vh;
+			background: black;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
-<script>
-	const LOADING_PHASES = [
-		"🖤🖤🖤🖤🖤🖤",
-		"❤️🖤🖤🖤🖤🖤",
-		"❤️🧡🖤🖤🖤🖤",
-		"❤️🧡💛🖤🖤🖤",
-		"❤️🧡💛💚🖤🖤",
-		"❤️🧡💛💚💙🖤",
-		"❤️🧡💛💚💙💜",
-		"❤️🧡💛💚💙💜"
-	];
+		a {
+			font-size: 2em;
+			text-decoration: none;
+		}
+	</style>
+</head>
 
-	let current_phase = 0;
+<body>
+	<a href="javascript:toggleFullscreen()"></a>
 
-	function updateLoadingProgress() {
-		if (current_phase == LOADING_PHASES.length)
-			current_phase = 0;
+	<script>
+		const loading_phases = [
+			"🖤🖤🖤🖤🖤🖤",
+			"❤️🖤🖤🖤🖤🖤",
+			"❤️🧡🖤🖤🖤🖤",
+			"❤️🧡💛🖤🖤🖤",
+			"❤️🧡💛💚🖤🖤",
+			"❤️🧡💛💚💙🖤",
+			"❤️🧡💛💚💙💜"
+		];
 
-		document.body.innerText = LOADING_PHASES[current_phase++];
+		const anchor_tag = document.getElementsByTagName("a")[0];
 
-		setTimeout(updateLoadingProgress, Math.floor(Math.random() * 6) * 400);
-	}
+		let current_phase = 0;
 
-	onload = {
-		document.getElementsByTagName("HTML")[0].requestFullscreen();
-		updateLoadingProgress;
-	}
-</script>
+		function toggleFullscreen() {
+			if (document.fullscreenElement) {
+				document.exitFullscreen();
+
+				return;
+			}
+
+			document.documentElement.requestFullscreen();
+		}
+
+		function updateLoadingProgress() {
+			if (current_phase == loading_phases.length) {
+				current_phase = 0;
+			}
+
+			anchor_tag.innerText = loading_phases[current_phase++];
+
+			setTimeout(updateLoadingProgress, Math.floor(Math.random() * 6) * 400);
+		}
+
+		onload = updateLoadingProgress;
+	</script>
+</body>
 
 </html>
